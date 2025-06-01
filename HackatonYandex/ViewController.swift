@@ -7,9 +7,7 @@
 
 import UIKit
 
-import UIKit
-
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
 
     // MARK: UI Elements
 
