@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchLogo" translatesAutoresizingMaskIntoConstraints="NO" id="m6Q-Nf-UHB">
+                                <rect key="frame" x="106.66666666666669" y="218" width="180" height="180"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="180" id="Ybx-jF-C9V"/>
+                                    <constraint firstAttribute="height" constant="180" id="esP-Qm-iwY"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Разговор" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EUQ-0O-bAU">
+                                <rect key="frame" x="64" y="502" width="265" height="66"/>
+                                <fontDescription key="fontDescription" name="Impact" family="Impact" pointSize="54"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Ваш помощник в общении — быстро, удобно, доступно." textAlignment="center" lineBreakMode="clip" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ukl-fa-duE">
+                                <rect key="frame" x="64" y="588" width="265" height="47"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logosLaunchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="Wga-af-vur">
+                                <rect key="frame" x="145.66666666666666" y="725" width="102" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="102" id="GOn-AG-kDu"/>
+                                    <constraint firstAttribute="height" constant="48" id="euz-Df-liA"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Инклюзия в Яндексе" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qwh-Cw-2Mm">
+                                <rect key="frame" x="64" y="792" width="265" height="27"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" name="yellowYandex"/>
+                        <constraints>
+                            <constraint firstItem="qwh-Cw-2Mm" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="09G-ZN-WiD"/>
+                            <constraint firstItem="m6Q-Nf-UHB" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="1GK-Fu-ifS"/>
+                            <constraint firstItem="EUQ-0O-bAU" firstAttribute="top" secondItem="m6Q-Nf-UHB" secondAttribute="bottom" constant="104" id="7Zt-X4-eu5"/>
+                            <constraint firstItem="EUQ-0O-bAU" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="48" id="DUS-RI-0Gf"/>
+                            <constraint firstItem="Wga-af-vur" firstAttribute="bottom" secondItem="Ukl-fa-duE" secondAttribute="top" constant="90" id="Gda-U4-KoN"/>
+                            <constraint firstItem="qwh-Cw-2Mm" firstAttribute="centerX" secondItem="Wga-af-vur" secondAttribute="centerX" id="I9d-Sm-4U8"/>
+                            <constraint firstItem="qwh-Cw-2Mm" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="S9k-Ck-Aog"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ukl-fa-duE" secondAttribute="trailing" constant="48" id="ZOo-Yr-YLd"/>
+                            <constraint firstItem="Wga-af-vur" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="129.66999999999999" id="cgb-4y-nyy"/>
+                            <constraint firstItem="qwh-Cw-2Mm" firstAttribute="top" secondItem="Wga-af-vur" secondAttribute="bottom" constant="20" id="ejQ-K6-PHr"/>
+                            <constraint firstItem="EUQ-0O-bAU" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="jyl-oy-HGW"/>
+                            <constraint firstItem="Ukl-fa-duE" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="48" id="kXK-gb-mXk"/>
+                            <constraint firstItem="m6Q-Nf-UHB" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="ozB-Q8-eR3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="EUQ-0O-bAU" secondAttribute="trailing" constant="48" id="si2-1P-9G9"/>
+                            <constraint firstAttribute="trailing" secondItem="qwh-Cw-2Mm" secondAttribute="trailing" constant="64" id="tX6-cf-aVq"/>
+                            <constraint firstItem="qwh-Cw-2Mm" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="76" id="wYP-wF-eFO"/>
+                            <constraint firstItem="qwh-Cw-2Mm" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="64" id="xiv-XN-449"/>
+                            <constraint firstItem="Ukl-fa-duE" firstAttribute="top" secondItem="EUQ-0O-bAU" secondAttribute="bottom" constant="20" id="yeH-42-nXp"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Wga-af-vur" secondAttribute="trailing" constant="129.33000000000001" id="ynQ-o8-xNy"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="52.671755725190835" y="374.64788732394368"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="launchLogo" width="224" height="224"/>
+        <image name="logosLaunchScreen" width="102" height="48"/>
+        <namedColor name="yellowYandex">
+            <color red="0.98823529409999999" green="0.87843137250000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
+</document>
