@@ -7,7 +7,14 @@
 
 import UIKit
 
+protocol TalkViewControllerDelegate: AnyObject {
+    func showStartTypingHint()
+}
+
 class TalkViewController: UIViewController {
+    
+    weak var delegate: TalkViewControllerDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .chatBackground
@@ -23,5 +30,10 @@ class TalkViewController: UIViewController {
             label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             label.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        delegate?.showStartTypingHint()
     }
 }

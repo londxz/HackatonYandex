@@ -11,10 +11,12 @@ import UIKit
 
 class ChatVC: UIViewController {
 
-    private let chatComponent = ChatComponent()
     private let topChatComponent = TopChatComponent()
     private let segmentControlComponent = SegmentControlComponent()
     private let containerView = UIView()
+    let chatComponent = ChatComponent()
+    
+    var typingHint: StartTypingHint?
     
     private var currentChildVC: UIViewController?
     lazy var talkVC = TalkViewController()
@@ -27,9 +29,16 @@ class ChatVC: UIViewController {
         setupSegmentControlComponent()
         setupChatComponent()
         setupContainerView()
+        
         segmentControlComponent.delegate = self
+        talkVC.delegate = self
 
         switchToChild(talkVC)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        currentChildVC?.viewDidDisappear(animated)
     }
 
     private func setupTopChatComponent() {
