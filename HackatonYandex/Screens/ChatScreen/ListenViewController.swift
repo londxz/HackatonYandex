@@ -10,7 +10,7 @@ import UIKit
 class ListenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .chatBackground
+        view.backgroundColor = .backgroundYandex
 
         let label = UILabel()
         label.text = "Режим слушания"
