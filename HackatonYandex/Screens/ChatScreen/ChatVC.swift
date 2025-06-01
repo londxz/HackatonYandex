@@ -34,11 +34,16 @@ class ChatVC: UIViewController {
         talkVC.delegate = self
 
         switchToChild(talkVC)
+        
+        //UserDefaults.standard.removeObject(forKey: "hasSeenOnboarding")
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         currentChildVC?.viewDidDisappear(animated)
+        
+        typingHint?.hide()
+        typingHint = nil
     }
 
     private func setupTopChatComponent() {
