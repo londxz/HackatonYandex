@@ -42,12 +42,6 @@ class OnboardingContentVC: UIViewController {
         setupTextStack()
         setupButtonStack()
         
-        for family: String in UIFont.familyNames {
-            print(family)
-            for names: String in UIFont.fontNames(forFamilyName: family) {
-                print("== \(names)")
-             }
-        }
     }
     
     private func setupTextStack() {
@@ -82,8 +76,6 @@ class OnboardingContentVC: UIViewController {
         mainStack.addArrangedSubview(imageView)
         mainStack.addArrangedSubview(titleView)
         mainStack.addArrangedSubview(subtitleLabel)
-        
-        //mainStack.setCustomSpacing(40, after: imageView)
         
         view.addSubview(mainStack)
         

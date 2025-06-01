@@ -68,9 +68,9 @@
 			children = (
 				3C11AAAA2DEC53AE00521233 /* Onboarding */,
 				3C11AAA12DEC483300521233 /* ViewController.swift */,
-				3C11AA9D2DEC483300521233 /* LaunchScreen.storyboard */,
 				3C11AAA02DEC483300521233 /* SceneDelegate.swift */,
 				3C11AA992DEC483300521233 /* AppDelegate.swift */,
+				3C11AA9D2DEC483300521233 /* LaunchScreen.storyboard */,
 				3C11AAB52DEC6A9200521233 /* Fonts */,
 				3C11AA9A2DEC483300521233 /* Assets.xcassets */,
 				3C11AA9B2DEC483300521233 /* Info.plist */,

@@ -43,7 +43,7 @@ class OnboardingPageVC: UIPageViewController {
     }
 
     func finishOnboarding() {
-        //UserDefaults.standard.set(true, forKey: "hasSeenOnboarding")
+        UserDefaults.standard.set(true, forKey: "hasSeenOnboarding")
         let mainVC = ViewController()
         
         guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,

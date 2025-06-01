@@ -18,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         let navController = UINavigationController(rootViewController: ViewController())
         
-        let isOnboarding = false
+        let isOnboarding = UserDefaults.standard.value(forKey: "hasSeenOnboarding") as? Bool ?? false
         let OnboardingPageVC = OnboardingPageVC(transitionStyle: .scroll, navigationOrientation: .horizontal)
         
         window.rootViewController = isOnboarding ? navController : OnboardingPageVC
