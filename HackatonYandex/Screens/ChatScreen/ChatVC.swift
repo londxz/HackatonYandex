@@ -14,11 +14,11 @@ class ChatVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .backgroundYandex
-
-        setupSearchInput()
+        
+        setupChatComponent()
     }
 
-    private func setupSearchInput() {
+    private func setupChatComponent() {
         view.addSubview(chatComponent)
         chatComponent.translatesAutoresizingMaskIntoConstraints = false
 
