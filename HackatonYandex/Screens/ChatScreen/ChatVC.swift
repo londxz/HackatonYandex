@@ -14,7 +14,7 @@ class ChatVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .backgroundYandex
-        
+        UserDefaults.standard.removeObject(forKey: "hasSeenOnboarding")
         setupChatComponent()
     }
 

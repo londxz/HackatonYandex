@@ -49,10 +49,10 @@ class OnboardingPageVC: UIPageViewController {
         guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
               let keyWindow = windowScene.windows.first else { return }
         
-        let navigationController = UINavigationController(rootViewController: mainVC)
+        let tabBar = TabBarController()
         
         UIView.transition(with: keyWindow, duration: 0.5, options: .transitionCurlDown) {
-            keyWindow.rootViewController = navigationController
+            keyWindow.rootViewController = tabBar
             keyWindow.makeKeyAndVisible()
         }
     }
