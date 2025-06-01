@@ -18,6 +18,8 @@
 		3C11AAB72DEC6A9D00521233 /* YSDisplay-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3C11AAB62DEC6A9D00521233 /* YSDisplay-Bold.ttf */; };
 		3C11AAB92DEC6BBC00521233 /* YSText-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3C11AAB82DEC6BBC00521233 /* YSText-Regular.ttf */; };
 		3C11AABB2DEC6DFE00521233 /* YSDisplay-Medium-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3C11AABA2DEC6DFE00521233 /* YSDisplay-Medium-Regular.ttf */; };
+		3C8BF3972DEC83AC0029F770 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8BF3962DEC83A70029F770 /* TabBarController.swift */; };
+		3C8BF39C2DEC8AAB0029F770 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8BF39B2DEC8A880029F770 /* ChatVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		3C11AAB62DEC6A9D00521233 /* YSDisplay-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "YSDisplay-Bold.ttf"; sourceTree = "<group>"; };
 		3C11AAB82DEC6BBC00521233 /* YSText-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "YSText-Regular.ttf"; sourceTree = "<group>"; };
 		3C11AABA2DEC6DFE00521233 /* YSDisplay-Medium-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "YSDisplay-Medium-Regular.ttf"; sourceTree = "<group>"; };
+		3C8BF3962DEC83A70029F770 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		3C8BF39B2DEC8A880029F770 /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				3C11AAAA2DEC53AE00521233 /* Onboarding */,
+				3C8BF3982DEC8A200029F770 /* Screens */,
 				3C11AAA12DEC483300521233 /* ViewController.swift */,
 				3C11AAA02DEC483300521233 /* SceneDelegate.swift */,
 				3C11AA992DEC483300521233 /* AppDelegate.swift */,
@@ -104,6 +109,23 @@
 				3C11AAB62DEC6A9D00521233 /* YSDisplay-Bold.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		3C8BF3982DEC8A200029F770 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				3C8BF39A2DEC8A710029F770 /* ChatScreen */,
+				3C8BF3962DEC83A70029F770 /* TabBarController.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		3C8BF39A2DEC8A710029F770 /* ChatScreen */ = {
+			isa = PBXGroup;
+			children = (
+				3C8BF39B2DEC8A880029F770 /* ChatVC.swift */,
+			);
+			path = ChatScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,10 +204,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C8BF39C2DEC8AAB0029F770 /* ChatVC.swift in Sources */,
 				3C11AAB02DEC54F600521233 /* OnboardingPageVC.swift in Sources */,
 				3C11AAAE2DEC541800521233 /* OnboardingContentViewController.swift in Sources */,
 				3C11AAA72DEC483300521233 /* AppDelegate.swift in Sources */,
 				3C11AAAC2DEC53CF00521233 /* OnboardingPageModel.swift in Sources */,
+				3C8BF3972DEC83AC0029F770 /* TabBarController.swift in Sources */,
 				3C11AAA82DEC483300521233 /* SceneDelegate.swift in Sources */,
 				3C11AAA92DEC483300521233 /* ViewController.swift in Sources */,
 			);

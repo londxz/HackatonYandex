@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let isOnboarding = UserDefaults.standard.value(forKey: "hasSeenOnboarding") as? Bool ?? false
         let OnboardingPageVC = OnboardingPageVC(transitionStyle: .scroll, navigationOrientation: .horizontal)
         
-        window.rootViewController = isOnboarding ? navController : OnboardingPageVC
+        window.rootViewController = isOnboarding ? TabBarController() : OnboardingPageVC
         self.window = window
         window.makeKeyAndVisible()
     }
