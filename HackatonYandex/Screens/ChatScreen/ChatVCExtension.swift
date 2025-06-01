@@ -7,8 +7,10 @@
 
 extension ChatVC: SegmentControlComponentDelegate {
     func segmentChanged(to index: Int) {
-        print(index)
+        switch index {
+        case 0: switchToChild(talkVC)
+        case 1: switchToChild(listenVC)
+        default: break
+        }
     }
-    
-    
 }

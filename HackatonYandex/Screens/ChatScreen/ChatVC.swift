@@ -7,37 +7,34 @@
 
 import UIKit
 
+import UIKit
+
 class ChatVC: UIViewController {
+
+    private let chatComponent = ChatComponent()
+    private let topChatComponent = TopChatComponent()
+    private let segmentControlComponent = SegmentControlComponent()
+    private let containerView = UIView()
     
-    let chatComponent = ChatComponent()
-    let topChatComponent = TopChatComponent()
-    let segmentControlComponent = SegmentControlComponent()
+    private var currentChildVC: UIViewController?
+    lazy var talkVC = TalkViewController()
+    lazy var listenVC = ListenViewController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .backgroundYandex
-        //UserDefaults.standard.removeObject(forKey: "hasSeenOnboarding")
-        setupChatComponent()
         setupTopChatComponent()
         setupSegmentControlComponent()
+        setupChatComponent()
+        setupContainerView()
+        segmentControlComponent.delegate = self
+
+        switchToChild(talkVC)
     }
 
-    private func setupChatComponent() {
-        view.addSubview(chatComponent)
-        chatComponent.translatesAutoresizingMaskIntoConstraints = false
-
-        NSLayoutConstraint.activate([
-            chatComponent.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            chatComponent.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            chatComponent.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            chatComponent.heightAnchor.constraint(equalToConstant: 56)
-        ])
-    }
-    
     private func setupTopChatComponent() {
         view.addSubview(topChatComponent)
         topChatComponent.translatesAutoresizingMaskIntoConstraints = false
-        
         NSLayoutConstraint.activate([
             topChatComponent.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             topChatComponent.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -45,17 +42,62 @@ class ChatVC: UIViewController {
             topChatComponent.heightAnchor.constraint(equalToConstant: 56)
         ])
     }
-    
+
     private func setupSegmentControlComponent() {
-        segmentControlComponent.delegate = self
         view.addSubview(segmentControlComponent)
         segmentControlComponent.translatesAutoresizingMaskIntoConstraints = false
-        
         NSLayoutConstraint.activate([
-            segmentControlComponent.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            segmentControlComponent.topAnchor.constraint(equalTo: topChatComponent.bottomAnchor, constant: 4),
             segmentControlComponent.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 11),
             segmentControlComponent.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -11),
-            segmentControlComponent.topAnchor.constraint(equalTo: topChatComponent.bottomAnchor, constant: 4)
+            segmentControlComponent.heightAnchor.constraint(equalToConstant: 44)
         ])
+    }
+
+    private func setupContainerView() {
+        view.addSubview(containerView)
+        containerView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            containerView.topAnchor.constraint(equalTo: segmentControlComponent.bottomAnchor, constant: 12),
+            containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            containerView.bottomAnchor.constraint(equalTo: chatComponent.topAnchor, constant: -6)
+        ])
+    }
+
+    private func setupChatComponent() {
+        view.addSubview(chatComponent)
+        chatComponent.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            chatComponent.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            chatComponent.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            chatComponent.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            chatComponent.heightAnchor.constraint(equalToConstant: 56)
+        ])
+    }
+
+    func switchToChild(_ newVC: UIViewController) {
+        // Remove current VC
+        if let current = currentChildVC {
+            current.willMove(toParent: nil)
+            current.view.removeFromSuperview()
+            current.removeFromParent()
+        }
+
+        // Add new VC
+        addChild(newVC)
+        containerView.addSubview(newVC.view)
+        newVC.view.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            newVC.view.topAnchor.constraint(equalTo: containerView.topAnchor),
+            newVC.view.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+            newVC.view.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
+            newVC.view.bottomAnchor.constraint(equalTo: containerView.bottomAnchor)
+        ])
+        newVC.didMove(toParent: self)
+
+        currentChildVC = newVC
     }
 }
