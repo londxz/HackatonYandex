@@ -9,6 +9,7 @@ import UIKit
 
 protocol TalkViewControllerDelegate: AnyObject {
     func showStartTypingHint()
+    func showMicrophoneHint()
 }
 
 class TalkViewController: UIViewController {
@@ -35,5 +36,6 @@ class TalkViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         delegate?.showStartTypingHint()
+        delegate?.showMicrophoneHint()
     }
 }

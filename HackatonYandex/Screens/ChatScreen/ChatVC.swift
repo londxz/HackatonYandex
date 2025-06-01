@@ -12,11 +12,12 @@ import UIKit
 class ChatVC: UIViewController {
 
     private let topChatComponent = TopChatComponent()
-    private let segmentControlComponent = SegmentControlComponent()
     private let containerView = UIView()
+    let segmentControlComponent = SegmentControlComponent()
     let chatComponent = ChatComponent()
     
     var typingHint: StartTypingHint?
+    var microphoneHint: MicrophoneOnHint?
     
     private var currentChildVC: UIViewController?
     lazy var talkVC = TalkViewController()
@@ -44,6 +45,9 @@ class ChatVC: UIViewController {
         
         typingHint?.hide()
         typingHint = nil
+        
+        microphoneHint?.hide()
+        microphoneHint = nil
     }
 
     private func setupTopChatComponent() {

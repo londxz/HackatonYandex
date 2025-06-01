@@ -1,0 +1,8 @@
+    let hint = MicrophoneOnHint()
+    hint.onTap = { [weak self] in
+        let newVC = SomeOtherViewController()
+        self?.navigationController?.pushViewController(newVC, animated: true)
+    }
+
+    microphoneHint = hint
+    hint.show(over: self.view, under: segmentControlComponent)
