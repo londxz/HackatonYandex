@@ -200,7 +200,7 @@ final class MicrophoneOnHint: UIView {
             self.removeFromSuperview()
         }
     }
-    
+       
     @objc private func hintTapped() {
         onTap?()
     }

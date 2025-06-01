@@ -22,6 +22,9 @@ class ChatVC: UIViewController {
     private var currentChildVC: UIViewController?
     lazy var talkVC = TalkViewController()
     lazy var listenVC = ListenViewController()
+    
+    var microEnabledView: MicroEnabledView?
+    var isViewRotated = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +45,8 @@ class ChatVC: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         currentChildVC?.viewDidDisappear(animated)
+        
+        resetRotationIfNeeded()
         
         typingHint?.hide()
         typingHint = nil
@@ -118,4 +123,35 @@ class ChatVC: UIViewController {
 
         currentChildVC = newVC
     }
+    
+    func dismissMicrophoneOverlayIfNeeded() {
+        guard let overlay = microEnabledView else { return }
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            overlay.alpha = 0
+            overlay.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+        }, completion: { _ in
+            overlay.removeFromSuperview()
+        })
+        
+        microEnabledView = nil
+    }
+    
+    func resetRotationIfNeeded() {
+        guard isViewRotated else { return }
+
+        UIView.animate(withDuration: 0.3) {
+            self.view.transform = .identity
+        }
+        isViewRotated = false
+    }
+    
+    func toggleRotation() {
+        isViewRotated.toggle()
+
+        UIView.animate(withDuration: 0.3) {
+            self.view.transform = self.isViewRotated ? CGAffineTransform(rotationAngle: .pi) : .identity
+        }
+    }
+
 }

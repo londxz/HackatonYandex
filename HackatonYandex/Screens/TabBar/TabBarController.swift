@@ -34,7 +34,8 @@ class ThirdViewController: UIViewController {
 class TabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        delegate = self
+        
         let firstVC = ChatVC()
         let secondVC = SecondViewController()
         let thirdVC = ThirdViewController()
