@@ -19,6 +19,8 @@
 		3C11AAB92DEC6BBC00521233 /* YSText-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3C11AAB82DEC6BBC00521233 /* YSText-Regular.ttf */; };
 		3C11AABB2DEC6DFE00521233 /* YSDisplay-Medium-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3C11AABA2DEC6DFE00521233 /* YSDisplay-Medium-Regular.ttf */; };
 		3C4270D42DECB34800AA34D9 /* TopChatComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4270D32DECB34000AA34D9 /* TopChatComponent.swift */; };
+		3C4270D72DECB6DD00AA34D9 /* SegmentControlComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4270D62DECB6D500AA34D9 /* SegmentControlComponent.swift */; };
+		3C4270D92DECB96900AA34D9 /* ChatVCExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4270D82DECB95D00AA34D9 /* ChatVCExtension.swift */; };
 		3C8BF3972DEC83AC0029F770 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8BF3962DEC83A70029F770 /* TabBarController.swift */; };
 		3C8BF39C2DEC8AAB0029F770 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8BF39B2DEC8A880029F770 /* ChatVC.swift */; };
 		3C8BF39E2DEC8C730029F770 /* ChatComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8BF39D2DEC8C5D0029F770 /* ChatComponent.swift */; };
@@ -39,6 +41,8 @@
 		3C11AAB82DEC6BBC00521233 /* YSText-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "YSText-Regular.ttf"; sourceTree = "<group>"; };
 		3C11AABA2DEC6DFE00521233 /* YSDisplay-Medium-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "YSDisplay-Medium-Regular.ttf"; sourceTree = "<group>"; };
 		3C4270D32DECB34000AA34D9 /* TopChatComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopChatComponent.swift; sourceTree = "<group>"; };
+		3C4270D62DECB6D500AA34D9 /* SegmentControlComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentControlComponent.swift; sourceTree = "<group>"; };
+		3C4270D82DECB95D00AA34D9 /* ChatVCExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVCExtension.swift; sourceTree = "<group>"; };
 		3C8BF3962DEC83A70029F770 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		3C8BF39B2DEC8A880029F770 /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
 		3C8BF39D2DEC8C5D0029F770 /* ChatComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatComponent.swift; sourceTree = "<group>"; };
@@ -118,6 +122,7 @@
 		3C4270D52DECB5E500AA34D9 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				3C4270D62DECB6D500AA34D9 /* SegmentControlComponent.swift */,
 				3C4270D32DECB34000AA34D9 /* TopChatComponent.swift */,
 				3C8BF39D2DEC8C5D0029F770 /* ChatComponent.swift */,
 			);
@@ -138,6 +143,7 @@
 			children = (
 				3C4270D52DECB5E500AA34D9 /* Components */,
 				3C8BF39B2DEC8A880029F770 /* ChatVC.swift */,
+				3C4270D82DECB95D00AA34D9 /* ChatVCExtension.swift */,
 			);
 			path = ChatScreen;
 			sourceTree = "<group>";
@@ -221,8 +227,10 @@
 				3C8BF39C2DEC8AAB0029F770 /* ChatVC.swift in Sources */,
 				3C4270D42DECB34800AA34D9 /* TopChatComponent.swift in Sources */,
 				3C11AAB02DEC54F600521233 /* OnboardingPageVC.swift in Sources */,
+				3C4270D72DECB6DD00AA34D9 /* SegmentControlComponent.swift in Sources */,
 				3C11AAAE2DEC541800521233 /* OnboardingContentViewController.swift in Sources */,
 				3C11AAA72DEC483300521233 /* AppDelegate.swift in Sources */,
+				3C4270D92DECB96900AA34D9 /* ChatVCExtension.swift in Sources */,
 				3C11AAAC2DEC53CF00521233 /* OnboardingPageModel.swift in Sources */,
 				3C8BF39E2DEC8C730029F770 /* ChatComponent.swift in Sources */,
 				3C8BF3972DEC83AC0029F770 /* TabBarController.swift in Sources */,

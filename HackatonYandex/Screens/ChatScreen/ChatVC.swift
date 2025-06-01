@@ -11,6 +11,7 @@ class ChatVC: UIViewController {
     
     let chatComponent = ChatComponent()
     let topChatComponent = TopChatComponent()
+    let segmentControlComponent = SegmentControlComponent()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +19,7 @@ class ChatVC: UIViewController {
         //UserDefaults.standard.removeObject(forKey: "hasSeenOnboarding")
         setupChatComponent()
         setupTopChatComponent()
+        setupSegmentControlComponent()
     }
 
     private func setupChatComponent() {
@@ -41,6 +43,19 @@ class ChatVC: UIViewController {
             topChatComponent.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             topChatComponent.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             topChatComponent.heightAnchor.constraint(equalToConstant: 56)
+        ])
+    }
+    
+    private func setupSegmentControlComponent() {
+        segmentControlComponent.delegate = self
+        view.addSubview(segmentControlComponent)
+        segmentControlComponent.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            segmentControlComponent.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            segmentControlComponent.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 11),
+            segmentControlComponent.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -11),
+            segmentControlComponent.topAnchor.constraint(equalTo: topChatComponent.bottomAnchor, constant: 4)
         ])
     }
 }
