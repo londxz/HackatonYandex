@@ -6,8 +6,13 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ChatComponent: UIView {
+    
+    private var audioRecorder: AVAudioRecorder?
+    private var recordingSession: AVAudioSession!
+    private var audioFilename: URL?
     
     let textField = UITextField()
 
@@ -41,6 +46,14 @@ class ChatComponent: UIView {
         setupView()
         textField.delegate = self
         
+        recordingSession = AVAudioSession.sharedInstance()
+        do {
+            try recordingSession.setCategory(.playAndRecord, mode: .default)
+            try recordingSession.setActive(true)
+        } catch {
+            print("Failed to set up recording session: \(error)")
+        }
+        
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(_:)))
         textRightButton.addGestureRecognizer(longPressRecognizer)
         
@@ -54,6 +67,15 @@ class ChatComponent: UIView {
         
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(_:)))
         textRightButton.addGestureRecognizer(longPressRecognizer)
+        
+        recordingSession = AVAudioSession.sharedInstance()
+        do {
+            try recordingSession.setCategory(.playAndRecord, mode: .default)
+            try recordingSession.setActive(true)
+        } catch {
+            print("Failed to set up recording session: \(error)")
+        }
+
 
         speakRightButton.addTarget(self, action: #selector(speakButtonTapped), for: .touchUpInside)
     }
@@ -126,16 +148,52 @@ class ChatComponent: UIView {
             textRightButton.isHidden = true
             speakRightButton.isHidden = false
             startRecordingAnimation()
-            print("Удержание: показан speakRightButton и началась анимация")
+            startRecording() // ✅ запускаем запись
+            print("Удержание: показан speakRightButton, началась анимация и запись")
         }
     }
+
 
     @objc private func speakButtonTapped() {
         speakRightButton.isHidden = true
         textRightButton.isHidden = false
         stopRecordingAnimation()
-        print("Нажатие: вернули textRightButton и остановили анимацию")
+        stopRecording() // ✅ останавливаем запись
+        print("Нажатие: вернули textRightButton, остановили анимацию и запись")
     }
+    
+    private func startRecording() {
+        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let filename = "recording_\(UUID().uuidString.prefix(8)).wav"
+        audioFilename = documentsDirectory.appendingPathComponent(filename)
+        
+        let settings = [
+            AVFormatIDKey: Int(kAudioFormatLinearPCM),
+            AVSampleRateKey: 44100,
+            AVNumberOfChannelsKey: 1,
+            AVLinearPCMBitDepthKey: 16,
+            AVLinearPCMIsBigEndianKey: false,
+            AVLinearPCMIsFloatKey: false
+        ] as [String : Any]
+        
+        do {
+            audioRecorder = try AVAudioRecorder(url: audioFilename!, settings: settings)
+            audioRecorder?.record()
+            print("🎤 Началась запись\n\n\n\n")
+        } catch {
+            print("Не удалось начать запись: \(error)\n\n\n\n")
+        }
+    }
+
+    private func stopRecording() {
+        audioRecorder?.stop()
+        if let url = audioFilename {
+            print("📁 Запись завершена. Файл сохранён: \(url.lastPathComponent)\n\n\n\n")
+            // можешь отправить файл в другой VC здесь
+        }
+        print("Файл сохранён по пути: \(audioFilename?.path ?? "не найден")\n\n\n\n")
+    }
+
 }
 
 extension ChatComponent: UITextFieldDelegate {
