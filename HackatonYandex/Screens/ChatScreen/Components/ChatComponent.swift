@@ -19,11 +19,20 @@ class ChatComponent: UIView {
         return btn
     }()
     
-    lazy var rightButton: UIButton = {
+    lazy var textRightButton: UIButton = {
         let btn = UIButton(type: .system)
         btn.setImage(UIImage(named: "rightChatButton")?.withRenderingMode(.alwaysOriginal), for: .normal)
         btn.translatesAutoresizingMaskIntoConstraints = false
 
+        return btn
+    }()
+    
+    lazy var speakRightButton: UIButton = {
+        let btn = UIButton(type: .system)
+        btn.setImage(UIImage(named: "speakRightChatButton")?.withRenderingMode(.alwaysOriginal), for: .normal)
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.isHidden = true
+        
         return btn
     }()
 
@@ -31,12 +40,22 @@ class ChatComponent: UIView {
         super.init(frame: frame)
         setupView()
         textField.delegate = self
+        
+        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(_:)))
+        textRightButton.addGestureRecognizer(longPressRecognizer)
+        
+        speakRightButton.addTarget(self, action: #selector(speakButtonTapped), for: .touchUpInside)
     }
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setupView()
         textField.delegate = self
+        
+        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(_:)))
+        textRightButton.addGestureRecognizer(longPressRecognizer)
+
+        speakRightButton.addTarget(self, action: #selector(speakButtonTapped), for: .touchUpInside)
     }
 
     private func setupView() {
@@ -60,7 +79,7 @@ class ChatComponent: UIView {
         textField.leftView = paddingView
         textField.leftViewMode = .always
         
-        let stackView = UIStackView(arrangedSubviews: [leftButton, textField, rightButton])
+        let stackView = UIStackView(arrangedSubviews: [leftButton, textField, textRightButton, speakRightButton])
         stackView.axis = .horizontal
         stackView.spacing = 8
         stackView.alignment = .center
@@ -79,9 +98,43 @@ class ChatComponent: UIView {
             
             textField.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.75),
             
-            rightButton.heightAnchor.constraint(equalTo: textField.heightAnchor),
-            rightButton.widthAnchor.constraint(equalTo: rightButton.heightAnchor),
+            textRightButton.heightAnchor.constraint(equalTo: textField.heightAnchor),
+            textRightButton.widthAnchor.constraint(equalTo: textRightButton.heightAnchor),
+            
+            speakRightButton.heightAnchor.constraint(equalTo: textField.heightAnchor),
+            speakRightButton.widthAnchor.constraint(equalTo: speakRightButton.heightAnchor)
         ])
+    }
+    
+    private func startRecordingAnimation() {
+        let pulse = CABasicAnimation(keyPath: "transform.scale")
+        pulse.fromValue = 1.0
+        pulse.toValue = 1.15
+        pulse.duration = 0.6
+        pulse.autoreverses = true
+        pulse.repeatCount = .infinity
+        pulse.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+        speakRightButton.layer.add(pulse, forKey: "pulse")
+    }
+
+    private func stopRecordingAnimation() {
+        speakRightButton.layer.removeAnimation(forKey: "pulse")
+    }
+    
+    @objc private func handleLongPress(_ gesture: UILongPressGestureRecognizer) {
+        if gesture.state == .began {
+            textRightButton.isHidden = true
+            speakRightButton.isHidden = false
+            startRecordingAnimation()
+            print("Удержание: показан speakRightButton и началась анимация")
+        }
+    }
+
+    @objc private func speakButtonTapped() {
+        speakRightButton.isHidden = true
+        textRightButton.isHidden = false
+        stopRecordingAnimation()
+        print("Нажатие: вернули textRightButton и остановили анимацию")
     }
 }
 
