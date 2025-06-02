@@ -187,12 +187,24 @@ class ChatComponent: UIView {
 
     private func stopRecording() {
         audioRecorder?.stop()
-        if let url = audioFilename {
-            print("📁 Запись завершена. Файл сохранён: \(url.lastPathComponent)\n\n\n\n")
-            // можешь отправить файл в другой VC здесь
+        
+        guard let fileURL = audioFilename else {
+            print("❌ Файл не найден")
+            return
         }
-        print("Файл сохранён по пути: \(audioFilename?.path ?? "не найден")\n\n\n\n")
+        
+        print("📁 Запись завершена. Файл сохранён по пути: \(fileURL.path)\n")
+        
+        Networking().uploadWavFile(fileURL: fileURL) { result in
+            switch result {
+            case .success(let model):
+                print("✅ Распознанный текст: \(model.text)\n\n\n\n\n")
+            case .failure(let error):
+                print("❌ Ошибка при распознавании: \(error.localizedDescription)\n")
+            }
+        }
     }
+
 
 }
 

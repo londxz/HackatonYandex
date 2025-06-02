@@ -31,6 +31,8 @@
 		3C8BF3972DEC83AC0029F770 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8BF3962DEC83A70029F770 /* TabBarController.swift */; };
 		3C8BF39C2DEC8AAB0029F770 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8BF39B2DEC8A880029F770 /* ChatVC.swift */; };
 		3C8BF39E2DEC8C730029F770 /* ChatComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8BF39D2DEC8C5D0029F770 /* ChatComponent.swift */; };
+		3CBB48C12DEDBA4C00A288A3 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBB48C02DEDBA4900A288A3 /* Networking.swift */; };
+		3CBB48C52DEDBA9C00A288A3 /* SpeechToTextModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBB48C42DEDBA9400A288A3 /* SpeechToTextModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +62,8 @@
 		3C8BF3962DEC83A70029F770 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		3C8BF39B2DEC8A880029F770 /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
 		3C8BF39D2DEC8C5D0029F770 /* ChatComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatComponent.swift; sourceTree = "<group>"; };
+		3CBB48C02DEDBA4900A288A3 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		3CBB48C42DEDBA9400A288A3 /* SpeechToTextModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechToTextModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +96,7 @@
 		3C11AAA22DEC483300521233 /* HackatonYandex */ = {
 			isa = PBXGroup;
 			children = (
+				3CBB48C22DEDBA5400A288A3 /* Networking */,
 				3C11AAAA2DEC53AE00521233 /* Onboarding */,
 				3C8BF3982DEC8A200029F770 /* Screens */,
 				3C11AAA12DEC483300521233 /* ViewController.swift */,
@@ -193,6 +198,23 @@
 			path = ChatScreen;
 			sourceTree = "<group>";
 		};
+		3CBB48C22DEDBA5400A288A3 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				3CBB48C02DEDBA4900A288A3 /* Networking.swift */,
+				3CBB48C32DEDBA6E00A288A3 /* Models */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		3CBB48C32DEDBA6E00A288A3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3CBB48C42DEDBA9400A288A3 /* SpeechToTextModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -280,12 +302,14 @@
 				3C11AAAC2DEC53CF00521233 /* OnboardingPageModel.swift in Sources */,
 				3C8BF39E2DEC8C730029F770 /* ChatComponent.swift in Sources */,
 				3C4270DF2DECBEC100AA34D9 /* StartTypingHint.swift in Sources */,
+				3CBB48C12DEDBA4C00A288A3 /* Networking.swift in Sources */,
 				3C8BF3972DEC83AC0029F770 /* TabBarController.swift in Sources */,
 				3C11AAA82DEC483300521233 /* SceneDelegate.swift in Sources */,
 				3C728F3F2DED2CC2007F9AC4 /* ChatVC+Keyboard.swift in Sources */,
 				3C4270DD2DECBBC600AA34D9 /* ListenViewController.swift in Sources */,
 				3C4270EA2DED13B300AA34D9 /* TabBarController+Extension.swift in Sources */,
 				3C11AAA92DEC483300521233 /* ViewController.swift in Sources */,
+				3CBB48C52DEDBA9C00A288A3 /* SpeechToTextModel.swift in Sources */,
 				3C4270E72DED00AC00AA34D9 /* MicroEnabledView.swift in Sources */,
 				3C4270DB2DECBBB400AA34D9 /* TalkViewController.swift in Sources */,
 			);
