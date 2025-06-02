@@ -10,7 +10,9 @@ import UIKit
 import UIKit
 
 class ChatVC: UIViewController {
-
+    
+    var chatComponentBottomConstraint: NSLayoutConstraint!
+    
     private let topChatComponent = TopChatComponent()
     private let containerView = UIView()
     let segmentControlComponent = SegmentControlComponent()
@@ -25,10 +27,16 @@ class ChatVC: UIViewController {
     
     var microEnabledView: MicroEnabledView?
     var isViewRotated = false
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .backgroundYandex
+        setupKeyboardObservers()
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+        
         setupTopChatComponent()
         setupSegmentControlComponent()
         setupChatComponent()
@@ -36,10 +44,14 @@ class ChatVC: UIViewController {
         
         segmentControlComponent.delegate = self
         talkVC.delegate = self
-
+        
         switchToChild(talkVC)
         
         //UserDefaults.standard.removeObject(forKey: "hasSeenOnboarding")
+    }
+    
+    deinit {
+        removeKeyboardObservers()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -54,7 +66,7 @@ class ChatVC: UIViewController {
         microphoneHint?.hide()
         microphoneHint = nil
     }
-
+    
     private func setupTopChatComponent() {
         view.addSubview(topChatComponent)
         topChatComponent.translatesAutoresizingMaskIntoConstraints = false
@@ -65,7 +77,7 @@ class ChatVC: UIViewController {
             topChatComponent.heightAnchor.constraint(equalToConstant: 56)
         ])
     }
-
+    
     private func setupSegmentControlComponent() {
         view.addSubview(segmentControlComponent)
         segmentControlComponent.translatesAutoresizingMaskIntoConstraints = false
@@ -76,7 +88,7 @@ class ChatVC: UIViewController {
             segmentControlComponent.heightAnchor.constraint(equalToConstant: 44)
         ])
     }
-
+    
     private func setupContainerView() {
         view.addSubview(containerView)
         containerView.translatesAutoresizingMaskIntoConstraints = false
@@ -88,19 +100,23 @@ class ChatVC: UIViewController {
             containerView.bottomAnchor.constraint(equalTo: chatComponent.topAnchor, constant: -6)
         ])
     }
-
+    
     private func setupChatComponent() {
         view.addSubview(chatComponent)
         chatComponent.translatesAutoresizingMaskIntoConstraints = false
         
+        chatComponentBottomConstraint = chatComponent.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        
+        
         NSLayoutConstraint.activate([
-            chatComponent.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            //chatComponent.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             chatComponent.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             chatComponent.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            chatComponent.heightAnchor.constraint(equalToConstant: 56)
+            chatComponent.heightAnchor.constraint(equalToConstant: 56),
+            chatComponentBottomConstraint
         ])
     }
-
+    
     func switchToChild(_ newVC: UIViewController) {
         // Remove current VC
         if let current = currentChildVC {
@@ -108,7 +124,7 @@ class ChatVC: UIViewController {
             current.view.removeFromSuperview()
             current.removeFromParent()
         }
-
+        
         // Add new VC
         addChild(newVC)
         containerView.addSubview(newVC.view)
@@ -120,7 +136,7 @@ class ChatVC: UIViewController {
             newVC.view.bottomAnchor.constraint(equalTo: containerView.bottomAnchor)
         ])
         newVC.didMove(toParent: self)
-
+        
         currentChildVC = newVC
     }
     
@@ -139,7 +155,7 @@ class ChatVC: UIViewController {
     
     func resetRotationIfNeeded() {
         guard isViewRotated else { return }
-
+        
         UIView.animate(withDuration: 0.3) {
             self.view.transform = .identity
         }
@@ -148,10 +164,13 @@ class ChatVC: UIViewController {
     
     func toggleRotation() {
         isViewRotated.toggle()
-
+        
         UIView.animate(withDuration: 0.3) {
             self.view.transform = self.isViewRotated ? CGAffineTransform(rotationAngle: .pi) : .identity
         }
     }
-
+    
+    @objc private func dismissKeyboard() {
+        view.endEditing(true)
+    }
 }

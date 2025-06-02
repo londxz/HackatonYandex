@@ -27,6 +27,7 @@
 		3C4270E22DECCB7600AA34D9 /* MicrophoneOnHint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4270E12DECCB6000AA34D9 /* MicrophoneOnHint.swift */; };
 		3C4270E72DED00AC00AA34D9 /* MicroEnabledView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4270E62DED00AB00AA34D9 /* MicroEnabledView.swift */; };
 		3C4270EA2DED13B300AA34D9 /* TabBarController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4270E92DED13AC00AA34D9 /* TabBarController+Extension.swift */; };
+		3C728F3F2DED2CC2007F9AC4 /* ChatVC+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C728F3E2DED2CB7007F9AC4 /* ChatVC+Keyboard.swift */; };
 		3C8BF3972DEC83AC0029F770 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8BF3962DEC83A70029F770 /* TabBarController.swift */; };
 		3C8BF39C2DEC8AAB0029F770 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8BF39B2DEC8A880029F770 /* ChatVC.swift */; };
 		3C8BF39E2DEC8C730029F770 /* ChatComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8BF39D2DEC8C5D0029F770 /* ChatComponent.swift */; };
@@ -55,6 +56,7 @@
 		3C4270E12DECCB6000AA34D9 /* MicrophoneOnHint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicrophoneOnHint.swift; sourceTree = "<group>"; };
 		3C4270E62DED00AB00AA34D9 /* MicroEnabledView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicroEnabledView.swift; sourceTree = "<group>"; };
 		3C4270E92DED13AC00AA34D9 /* TabBarController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TabBarController+Extension.swift"; sourceTree = "<group>"; };
+		3C728F3E2DED2CB7007F9AC4 /* ChatVC+Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatVC+Keyboard.swift"; sourceTree = "<group>"; };
 		3C8BF3962DEC83A70029F770 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		3C8BF39B2DEC8A880029F770 /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
 		3C8BF39D2DEC8C5D0029F770 /* ChatComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatComponent.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 			children = (
 				3C8BF39B2DEC8A880029F770 /* ChatVC.swift */,
 				3C4270D82DECB95D00AA34D9 /* ChatVCExtension.swift */,
+				3C728F3E2DED2CB7007F9AC4 /* ChatVC+Keyboard.swift */,
 				3C4270E62DED00AB00AA34D9 /* MicroEnabledView.swift */,
 			);
 			path = Chat;
@@ -279,6 +282,7 @@
 				3C4270DF2DECBEC100AA34D9 /* StartTypingHint.swift in Sources */,
 				3C8BF3972DEC83AC0029F770 /* TabBarController.swift in Sources */,
 				3C11AAA82DEC483300521233 /* SceneDelegate.swift in Sources */,
+				3C728F3F2DED2CC2007F9AC4 /* ChatVC+Keyboard.swift in Sources */,
 				3C4270DD2DECBBC600AA34D9 /* ListenViewController.swift in Sources */,
 				3C4270EA2DED13B300AA34D9 /* TabBarController+Extension.swift in Sources */,
 				3C11AAA92DEC483300521233 /* ViewController.swift in Sources */,

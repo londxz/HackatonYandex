@@ -30,11 +30,13 @@ class ChatComponent: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
+        textField.delegate = self
     }
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setupView()
+        textField.delegate = self
     }
 
     private func setupView() {
@@ -80,5 +82,13 @@ class ChatComponent: UIView {
             rightButton.heightAnchor.constraint(equalTo: textField.heightAnchor),
             rightButton.widthAnchor.constraint(equalTo: rightButton.heightAnchor),
         ])
+    }
+}
+
+extension ChatComponent: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        print(1) // Вывод 1 в консоль
+        return true
     }
 }
